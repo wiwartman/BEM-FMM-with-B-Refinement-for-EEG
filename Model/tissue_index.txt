@@ -1,0 +1,25 @@
+%This file is to be populated with the list of files that contain
+% meshes relevant to the current simulation.  Each file is to be specified
+% on its own line using the following rules:
+% The line must begin with '>'.  Lines not beginning with '>' will be ignored.
+% Immediately following the '>', specify the name by which this tissue should be referenced
+% Following the tissue name, add ' : ' followed by the filename of the mesh associated
+%  with the tissue
+% Following the filename, add ' : ' followed by the conductivity in S/m
+%  associated with the tissue
+% Following the conductivity, add ' : ' followed by the tissue name of the
+%  tissue enclosing the current tissue.  Note that the enclosing tissue's name
+%  must match the tissue name of one other tissue in the file.  For a tissue
+%  enclosed only by free space, use 'FreeSpace' as the enclosing tissue name.
+%  The enclosing tissue's line need not appear before the line that references it
+% Referenced files must be .stl files!
+%Sample line:
+% >Epidermis : Epidermis_Dermis.stl : 0.333 : FreeSpace
+
+%% Load subject model 110411
+>Skin :         120111_skin.stl : 0.4650 : FreeSpace
+>Bone :         120111_skull.stl : 0.010 : Skin
+>CSF :          120111_csf.stl : 1.654 : Bone
+>GM :           120111_gm.stl : 0.2750 : CSF
+>WM :           120111_wm.stl : 0.1260 : GM
+>Cerebellum :   120111_cerebellum.stl : 0.216 : WM
