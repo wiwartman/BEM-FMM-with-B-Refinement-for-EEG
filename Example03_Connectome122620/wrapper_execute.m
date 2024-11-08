@@ -1,4 +1,3 @@
-clear all; %#ok<CLALL>
 cd Model\
     model1_setup_base_model;
     model2_add_AMR;

@@ -4,10 +4,20 @@
 %   Copyright SNM/WAW 2017-2024
 
 %%  Refinement parameters
+% These two if statements enable external setting of the AMRSTEPS and
+% factor variables. 
+if ~exist('ext_AMRSTEPS', 'var')
+    ext_AMRSTEPS = 4;
+end
+
+if ~exist('ext_k', 'var')
+    ext_k = 8;
+end
+
 method      = 'manifold';       %   default
 TAUBIN      = 'yes';            %   Taubin low-pass filtering: yes/no
-AMRSTEPS    = 4;                %   Number of AMR steps
-factor      = 8;                %   Parameter of the refinement cost function
+AMRSTEPS    = ext_AMRSTEPS;                %   Number of AMR steps
+factor      = ext_k;                %   Parameter of the refinement cost function
 prec        = 1e-02;            %   FMM precision (for first approximation of IE)
 
 %%  Initialize first approximation of integral equation and compute MeanAbsC
